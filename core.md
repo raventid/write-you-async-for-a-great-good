@@ -83,13 +83,13 @@ and started to write the code, thinking loudly.
 
 - In this situation we have some input-outup(IO) for example it might be STDOUT and STDIN, and we don't want to wait for something to appear there. What we really want is to have a piece of code, and when something appear in STDIN we want this code to be automaticaly runned.
 
-```
+```ruby
 IO.select [STDIN], nil, nil, 10
 ```
 
 Let's try to run this line of code in REPL.
 
-```
+```ruby
 pry(main)> IO.select [STDIN], nil, nil, 10
 10000
 => [[#<IO:<STDIN>>], [], []]
@@ -100,14 +100,14 @@ What happened here? We started `select` and asked it to wait for 10 seconds for 
 
 
 But what if we'll just wait for 10 seconds?
-```
+```ruby
 pry(main)> IO.select [STDIN], nil, nil, 10
 => nil
 ```
 What happened? We've got `nil` after 10 seconds of waiting.
 
 But how to use it? Ephera tried to implement some code wich actually do nonblocking IO.
-```
+```ruby
 def run
   readables, writeables, = IO.select [STDIN], nil, nil, 10
   
@@ -117,7 +117,7 @@ def run
 end
 ```
 
-```
+```ruby
 pry(main)> run 
 Hello
 Hello
@@ -129,7 +129,7 @@ Hello
 `IO.select` magically stop the execution of your program and wait for something to become readable and writeable, after which it unblocks it and let the code below to run.
 
 We know that we registered just one magical resource `STDIN` and after we enter `Hello` in pry session `IO.select` will react to it. 
-```
+```ruby
 if source = readables[0] # we know that we only have STDIN here
   puts source.read(6) # yes, we are waiting for 6 bytes to read.
 end
