@@ -134,3 +134,15 @@ if source = readables[0] # we know that we only have STDIN here
   puts source.read(6) # yes, we are waiting for 6 bytes to read.
 end
 ```
+
+# TODO: Enhance this section or remove it, not usefull at all
+It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
+
+Let's look a bit at this ancient and forgotten spells:
+
+Select - operating system call.
+Poll - operating system call.
+Epoll - Linux advanced polling mechanizm.
+Kqueue - OSX, BSD-based operating systems use this one.
+
+You might be interested in libraries such as `libevent` (truly ancient), `libev` (Phusion Passenger web-server and libraries based on nio4r, including Async and Culluloid), `libuv` (Node.js powerfull async engine built on top of it!)
