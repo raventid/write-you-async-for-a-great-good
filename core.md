@@ -78,3 +78,30 @@ end
 - Whoa, this is really weird, but how do my program know when to execute this code?
 ```
 
+After he ended this story everyone were silent. Ephera sat down before her screen
+and started to write the code, thinking loudly.
+
+- In this situation we have some input-outup(IO) for example it might be STDOUT and STDIN, and we don't want to wait for something to appear there. What we really want is to have a piece of code, and when something appear in STDIN we want this code to be automaticaly runned.
+
+```
+IO.select [STDIN], nil, nil, 10
+```
+
+Let's try to run this line of code in REPL.
+
+```
+pry(main)> IO.select [STDIN], nil, nil, 10
+10000
+=> [[#<IO:<STDIN>>], [], []]
+pry(main)> => 10000
+```
+
+What happened here? We started `select` and asked it to wait for 10 seconds for input in STDIN, we entered 10000 and got an array with this structure in response `[[#<IO:<STDIN>>], [], []]`. After this `pry` just output what we entered `pry(main)> => 10000`.
+
+
+But what if we'll just wait for 10 seconds?
+```
+pry(main)> IO.select [STDIN], nil, nil, 10
+=> nil
+```
+What happened? We've got `nil` after 10 seconds of waiting.
