@@ -105,3 +105,32 @@ pry(main)> IO.select [STDIN], nil, nil, 10
 => nil
 ```
 What happened? We've got `nil` after 10 seconds of waiting.
+
+But how to use it? Ephera tried to implement some code wich actually do nonblocking IO.
+```
+def run
+  readables, writeables, = IO.select [STDIN], nil, nil, 10
+  
+  if source = readables[0]
+    puts source.read(6) 
+  end
+end
+```
+
+```
+pry(main)> run 
+Hello
+Hello
+=> nil
+```
+
+`IO.select` gives us a couple of values. `readables` are array of magical resources you can get some text from. `writeables` are those who are ready for you to write to.
+
+`IO.select` magically stop the execution of your program and wait for something to become readable and writeable, after which it unblocks it and let the code below to run.
+
+We know that we registered just one magical resource `STDIN` and after we enter `Hello` in pry session `IO.select` will react to it. 
+```
+if source = readables[0] # we know that we only have STDIN here
+  puts source.read(6) # yes, we are waiting for 6 bytes to read.
+end
+```
