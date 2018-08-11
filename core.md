@@ -49,3 +49,32 @@ end
 # In the heart of Ruby.
 
 
+Ruby creators left something for us, deep in the the heart of the language. `IO.select` (you can learn about this method in official documentation `https://ruby-doc.org/core-2.3.3/IO.html#method-c-select`) is not widely known or used part of the standard library but it is truly a gem we have to understand. After reading `select` documentation and staring at `async def hello` method description team decided to implement something. 
+
+I remember the story about what it actually means to be asynchronous, one of the team members started his story:
+
+```
+A long time ago one wise man came up to me and asked what I am doing.
+
+I was writing a simple code like this:
+def text_handler
+  text = io.read_line
+  length = text.length
+  length * 2
+end
+
+He smiled and asked me: Why are you waiting for this text?
+- What?
+- You wait for it.
+- Yes, but I need this text to calculate the length and multiply by 2. How can I do this without a text?
+- Truly, there is no way to do this without text, but why wouldn't you ask your program to run your code only when your text is ready? Like this:
+def text_handler
+  io.read_line do |text|
+    length = text.length
+    length * 2
+  end
+end
+
+- Whoa, this is really weird, but how do my program know when to execute this code?
+```
+
