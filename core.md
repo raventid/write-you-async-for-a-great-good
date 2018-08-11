@@ -112,7 +112,7 @@ def run
   readables, writeables, = IO.select [STDIN], nil, nil, 10
   
   if source = readables[0]
-    puts source.read(6) 
+    puts source.read 
   end
 end
 ```
@@ -134,6 +134,26 @@ if source = readables[0] # we know that we only have STDIN here
   puts source.read(6) # yes, we are waiting for 6 bytes to read.
 end
 ```
+
+Let's take a closer look at `source.read(6)` line of code. This 6 is just plain weird.
+In Ruby we have 4 options to work with IO objects.
+
+`io.read`
+Reads until the IO is closed (e.g., end of file, server closes the connection, etc.)
+If you want to try this out in your console(pry session) your best bet is to use Ctrl-D, it'll send EOF to your process.
+
+`io.read(6)`
+Reads until it has received exactly 6 bytes.
+
+`io.readpartial(6)`
+Waits until the IO becomes readable, then it reads at most 6 bytes.
+So if a server sends only 3 bytes, readpartial will return those 3 bytes.
+If you had used read(6), it would wait until 3 more bytes were sent.
+
+`io.read_nonblock(6)`
+Will read at most 6 bytes if the IO is readable. It raises IO::WaitReadable if the IO is not readable.
+
+
 
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
