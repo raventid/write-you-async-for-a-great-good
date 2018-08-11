@@ -35,7 +35,7 @@ class DataBase
 end
 
 class GiftApi
-  def receive_gift_for(gift_card)
+  async def receive_gift_for(gift_card)
     ...
   end
 end
