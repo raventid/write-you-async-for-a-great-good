@@ -192,6 +192,12 @@ easier ways - told Erea.
 
 We'll try to find where to go next. But for now, it was great that we found out what Ruby have prepared for us!
 
+
+
+I think it's really hard to discuss all this async stuff with STDIN example. Maybe we should move to network IO, like HTTP? said cat programmer(yeah, he's a smart one).
+
+
+
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
 
