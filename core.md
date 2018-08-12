@@ -193,8 +193,26 @@ easier ways - told Erea.
 We'll try to find where to go next. But for now, it was great that we found out what Ruby have prepared for us!
 
 
+```
+I think it's really hard to discuss all this async stuff with `STDIN` example. Maybe we should move to network IO, like HTTP? - said cat programmer(yeah, he's a smart one).
+```
 
-I think it's really hard to discuss all this async stuff with STDIN example. Maybe we should move to network IO, like HTTP? said cat programmer(yeah, he's a smart one).
+```ruby
+require "socket" # we need `socket` to use TCPServer
+
+server = TCPServer.new("0.0.0.0", 9234)
+
+while io = server.accept # this is special function to accept connection at localhost:9234
+  io << "HTTP/1.1 200 OK\r\n\r\nHello, world!"
+  io.close
+end
+```
+
+```
+This is the simplest possible http server I can think about - cat started.
+A truly remarkable thing here in my opinion is that HTTP before HTTP2 is simple text
+protocol, so we can just send text to client "HTTP/1.1 200 OK\r\n\r\nHello, world!" - cat finished.
+```
 
 
 
