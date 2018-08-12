@@ -171,6 +171,15 @@ def run
   end
 end
 ```
+
+```
+pry(main)> run 
+Hello
+Hello
+=> nil
+
+```
+
 Here we changed from using `read` to `read_nonblock`.
 
 And we've got truly non-blocking code for our `STDIN`.
