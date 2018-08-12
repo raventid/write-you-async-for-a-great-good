@@ -177,7 +177,6 @@ pry(main)> run
 Hello
 Hello
 => nil
-
 ```
 
 Here we changed from using `read` to `read_nonblock`.
@@ -198,9 +197,13 @@ It looks really weird and low-level for Ruby developer, the reason for this - it
 
 Let's look a bit at this ancient and forgotten spells:
 
-Select - operating system call.
-Poll - operating system call.
-Epoll - Linux advanced polling mechanizm.
-Kqueue - OSX, BSD-based operating systems use this one.
+- Select - operating system call.
+- Poll - operating system call.
+- Epoll - Linux have this unique mechanizm.
+- Kqueue - OSX, BSD-based operating systems use this one.
 
-You might be interested in libraries such as `libevent` (truly ancient), `libev` (Phusion Passenger web-server and libraries based on nio4r, including Async and Culluloid), `libuv` (Node.js powerfull async engine built on top of it!)
+You might be interested in libraries: 
+
+- `libevent` (truly ancient)
+- `libev` (Phusion Passenger web-server and libraries based on nio4r, including Async and Culluloid)
+- `libuv` (Node.js powerfull async engine built on top of it!)
