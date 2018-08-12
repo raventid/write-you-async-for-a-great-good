@@ -112,7 +112,7 @@ def run
   readables, writeables, = IO.select [STDIN], nil, nil, 10
   
   if source = readables[0]
-    puts source.read 
+    puts source.read(6)
   end
 end
 ```
@@ -161,6 +161,28 @@ io.read_nonblock(6)
 ```
 Will read at most 6 bytes if the IO is readable. It raises IO::WaitReadable if the IO is not readable.
 
+Let's rearange this a little bit
+```ruby
+def run
+  readables, writeables, = IO.select [STDIN], nil, nil, 10
+  
+  if source = readables[0]
+    puts source.read_nonblock(4096)
+  end
+end
+```
+Here we changed from using `read` to `read_nonblock`.
+
+And we've got truly non-blocking code for our `STDIN`.
+
+Wizard and Erea(lead) were skeptical about this design. 
+```
+- It looks really complecated. If we want to puts something to screen there are much
+easier ways - told Erea.
+- Yep, it reminds about this ancient fast code, but I have no idea where to code from here - told Wizard
+```
+
+We'll try to find where to go next. But for now, it was great that we found out what Ruby have prepared for us!
 
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
