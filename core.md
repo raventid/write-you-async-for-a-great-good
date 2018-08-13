@@ -217,6 +217,64 @@ protocol, so we can just send text to client "HTTP/1.1 200 OK\r\n\r\nHello, worl
 and I think we should move from here and discuss what we can actually do.
 A classical example of how to use this cool select thing is chat server, let's try to make the simple one.
 
+## Chat Server. Where cat introduce Stream, EventLoop and and nonblocking IO.
+
+```ruby
+# Authors note:
+# I think the maximum size of code snippet is this one
+# We should avoid EventEmitter for now. Just use placeholder.
+# I think it would be enough to use Stream and EV with callbacks.
+
+
+class Stream
+  # we want to bind and emit events
+  include EventEmitter
+
+  def initialize(io)
+    @io = io
+    # Store outgoing data in this String
+    @writebuffer = ""
+  end
+
+  def to_io
+    @io
+  end
+
+  def <<(chunk)
+    # just append this to buffer, handle_write
+    # will make an actual write.
+    @writebuffer << chunk
+  end
+
+  def handle_read
+    chunk = @io.read_nonblock(4)
+    # this need to be improved, emit(:close) just removes
+    # clients from sever and EV lists, but does not close
+    # socket, so client wait for some server reaction and
+    # gets nothing in response.
+    # emit(:close) if chunk.include?(":q")
+    emit(:data, chunk)
+  rescue IO::WaitReadable
+    # Oops, IO wasn't readable, someone made a mistake
+  rescue EOFError, Errno::ECONNRESET
+    # IO was closed
+    emit(:close)
+  end
+
+  def handle_write
+    return if @writebuffer.empty?
+    length = @io.write_nonblock(@writebuffer)
+    # Remove the data which that was successfuly written
+    @writebuffer.slice!(0, length)
+    # Emit `drain` event if there's nothing more to write
+    emit(:drain) if @writebuffer.empty?
+  rescue IO::WaitWritable
+  rescue EOFError, Errno::ECONNRESET
+    emit(:close)
+  end
+end
+```
+
 
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
