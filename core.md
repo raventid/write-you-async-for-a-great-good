@@ -214,6 +214,8 @@ A truly remarkable thing here in my opinion is that HTTP before HTTP2 is simple 
 protocol, so we can just send text to client "HTTP/1.1 200 OK\r\n\r\nHello, world!" - cat finished.
 ```
 
+and I think we should move from here and discuss what we can actually do.
+A classical example of how to use this cool select thing is chat server, let's try to make the simple one.
 
 
 # TODO: Enhance this section or remove it, not usefull at all
