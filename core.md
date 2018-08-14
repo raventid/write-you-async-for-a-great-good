@@ -219,6 +219,8 @@ A classical example of how to use this cool select thing is chat server, let's t
 
 ## Chat Server. Where cat introduce Stream, EventLoop and and nonblocking IO.
 
+(If you don't wanna type all this code you can find it in core directory TODO: add link to here)
+
 ```ruby
 # Authors note:
 # I think the maximum size of code snippet is this one
