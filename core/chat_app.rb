@@ -1,27 +1,21 @@
-# Authors note:
-# I think the maximum size of code snippet is this one
-# We should avoid EventEmitter for now. Just use placeholder.
-# I think it would be enough to use Stream and EV with callbacks.
-
-
 class Stream
   def initialize(socket)
+    # Stream is just a wrapper for socket
     @socket = socket
     # Store outgoing data in this String
     @writebuffer = ""
-  end
-
-  def _callbacks
-    @_callbacks ||= Hash.new { |h, k| h[k] = [] }
+    # Callbacks for different events
+    @callbacks = {}
   end
 
   def register_callback_for(type, &callback)
-    _callbacks[type] << callback
+    @callbacks[type] = [] unless callback[type]
+    @callbacks[type] << callback
     self
   end
 
   def run_registered_callbacks_for(type, *args)
-    _callbacks[type].each do |callback|
+    @callbacks[type].each do |callback|
       callback.call(*args)
     end
   end
