@@ -291,6 +291,14 @@ to receive this 3 bytes, then it will wait a couple of minutes.
 
 TODO: Even if socket is considered to be a black magic the question arise - How is it possible to have 4 bytes in socket and then 3 more bytes? So socket is like a box where someone put some data and other folk take it out?
 
+```
+As you remember we use `read_nonblock` for our IO.select code. This is very simple method and it's behaviour
+looks like simple `read`. But there is a crucial difference between them.
+`read_nonblock` never wait for all requested bytes. If `read_nonblock` sees that socket is empty, it just
+raise an exception `IO::WaitReadable` wich means that there is no data in socket. - cat finished his story
+and waited for questions.
+```
+
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
 
