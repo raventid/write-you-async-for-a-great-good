@@ -289,6 +289,8 @@ programm to read(7) bytes and socket contains 4 bytes, it will wait for next 3 b
 to receive this 3 bytes, then it will wait a couple of minutes.
 ```
 
+TODO: Even if socket is considered to be a black magic the question arise - How is it possible to have 4 bytes in socket and then 3 more bytes? So socket is like a box where someone put some data and other folk take it out?
+
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
 
