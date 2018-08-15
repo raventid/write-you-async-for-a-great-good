@@ -277,6 +277,17 @@ class Stream
 end
 ```
 
+```
+Let's start with a socket. It sounds very technical, right? - cat started.
+Socket itself is a black magic provided for us by operating system, so we are going to talk about
+Ruby's sockets. They are wrappers for this misterious system sockets - cat told and became very serious.
+
+Socket it is just a connection to some resource, you can read from this resource and write to this resource.
+As we already seen you can read with `read` method and you can write with `write` method.
+Those methods are `blocking` methods. What does it mean after all? It's pretty simple. If you tell your
+programm to read(7) bytes and socket contains 4 bytes, it will wait for next 3 bytes. If takes a couple of minutes
+to receive this 3 bytes, then it will wait a couple of minutes.
+```
 
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
