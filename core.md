@@ -307,6 +307,24 @@ and waited for questions.
 - This is why we call this magic, we don't actually care what's going on outside of our application, we know how to work with socket and we just do it - wizard finished.
 ```
 
+Let me illustrate it with code, cat said.
+
+```ruby
+def nonblocking_read_from socket
+    # We tell Ruby to read upto 4096 bytes of data
+    # into chunk (if socket contains less, no problem)
+    chunk = socket.read_nonblock(4096)
+  rescue IO::WaitReadable
+    # Oops, IO wasn't readable, someone made a mistake
+    # it might've been kernel mistake to tell us this socket
+    # is ready!
+end
+```
+
+Well, but next time we try to read from this socket, how do we know where to start? - asked Erea
+Great question! This is what Ruby do for us, after he reads the data from socket it just disappears - cat helped
+
+
 TODO: last sentence is not the best I believe. 
 
 # TODO: Enhance this section or remove it, not usefull at all
