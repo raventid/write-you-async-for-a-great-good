@@ -299,6 +299,16 @@ raise an exception `IO::WaitReadable` wich means that there is no data in socket
 and waited for questions.
 ```
 
+```
+- I didn't completely understand what this socket thing is - told Erea.
+- It's a kernel magic... - wizard started,
+- ...I believe the only thing you should know about it is that it works like a pipe, someone can write into it, and someone else can read from it - told wizard.
+- But how do we know if we block socket when we write into it? Like if we write 3 bytes into socket maybe other people cannot read data in this moment?
+- This is why we call this magic, we don't actually care what's going on outside of our application, we know how to work with socket and we just do it - wizard finished.
+```
+
+TODO: last sentence is not the best I believe. 
+
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
 
