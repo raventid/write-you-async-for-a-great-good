@@ -311,13 +311,13 @@ Let me illustrate it with code, cat said.
 
 ```ruby
 def nonblocking_read_from socket
-    # We tell Ruby to read upto 4096 bytes of data
-    # into chunk (if socket contains less, no problem)
-    chunk = socket.read_nonblock(4096)
-  rescue IO::WaitReadable
-    # Oops, IO wasn't readable, someone made a mistake
-    # it might've been kernel mistake to tell us this socket
-    # is ready!
+  # We tell Ruby to read upto 4096 bytes of data
+  # into chunk (if socket contains less, no problem)
+  chunk = socket.read_nonblock(4096)
+rescue IO::WaitReadable
+  # Oops, IO wasn't readable, someone made a mistake
+  # it might've been kernel mistake to tell us this socket
+  # is ready!
 end
 ```
 
