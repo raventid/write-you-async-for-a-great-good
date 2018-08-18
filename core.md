@@ -327,6 +327,16 @@ Great question! This is what Ruby do for us, after he reads the data from socket
 
 TODO: last sentence is not the best I believe. 
 
+Let's write a nonblocking write - cat told us.
+```ruby
+buffer = String.new
+
+def nonblocking_write_to socket
+  amount_written = socket.write_nonblock(buffer)
+rescue IO::WaitWriteable
+end
+```
+
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
 
