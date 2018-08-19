@@ -345,6 +345,20 @@ Next let's go back to general concept and understand what we are trying to reach
 Event -> Notification -> Some piece of code running
 ```
 
+I think it might be nice to look at how we can work with events and this pieces of code.
+
+```ruby
+loop do
+  if any_event?
+    case event
+    when :message_received
+      puts "got the message"
+    when :new_client_appeared
+      puts "new client waites to be connected"
+  end
+end
+```
+
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
 
