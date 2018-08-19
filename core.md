@@ -337,6 +337,14 @@ rescue IO::WaitWriteable
 end
 ```
 
+So this is the foundation for how we will work with sockets.
+
+Next let's go back to general concept and understand what we are trying to reach.
+
+```
+Event -> Notification -> Some piece of code running
+```
+
 # TODO: Enhance this section or remove it, not usefull at all
 It looks really weird and low-level for Ruby developer, the reason for this - it is really pretty low-level. This approach for programming reactions to some events originated from C programming language.
 
