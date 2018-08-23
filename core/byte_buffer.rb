@@ -8,7 +8,8 @@ module Core
     attr_reader :position, :limit, :capacity
 
     def intitialize(capacity)
+      @capacity = capacity
+      @buffer = ("\0" * @capacity).force_encoding(Encoding::BINARY)
     end
-
   end
 end
