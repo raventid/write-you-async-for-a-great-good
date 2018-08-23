@@ -1,7 +1,7 @@
 ByteBuffer is a simple piece of allocated memory. The simplest way to create buffer is just
 
 ```ruby
-bute_buffer = ("\0" * @capacity).force_encoding(Encoding::BINARY)
+byte_buffer = ("\0" * @capacity).force_encoding(Encoding::BINARY)
 ```
 
 So, what's going on here? Let's take a look at this.
