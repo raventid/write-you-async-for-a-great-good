@@ -9,6 +9,9 @@ module Foundation
 
     def initialize(capacity)
       @capacity = capacity
+      @position = 0
+      @limit = capacity
+
       @buffer = ("\0" * @capacity).force_encoding(Encoding::BINARY)
     end
 
