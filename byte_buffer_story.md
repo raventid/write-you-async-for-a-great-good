@@ -18,3 +18,25 @@ So, our byte_buffer is pretty cool, but it's not very usable :(
 What if we want to add some data to this storage? What if we want to read from it?
 
 Let's introduce `<<` method! It's like adding something to array, but in our case we will be adding something to byte_buffer!
+
+```ruby
+def <<(str)
+      raise "expected String, got #{str.class}" unless str.respond_to?(:to_str)
+      str = str.to_str
+
+      # Available space in is easy to calculate,
+      # it is maximal cursor position minus current cursor position
+      available_space = @limit - @position
+
+      raise "buffer overflow" if str.length > available_space
+
+      # We have to select the part of byte_buffer
+      # from current cursor position to str.length
+      @buffer[@position...str.length] = str
+
+      # Here we shift position by the length of string
+      @position += str.length
+      self
+    end
+
+```
