@@ -10,7 +10,7 @@ So, what's going on here? Let's take a look at this.
 
 To allocate the amount we need for this string, we multiply Null and @capacity.
 
-String in Ruby (and many other languages) have an encoding property. Will use BINARY
+String in Ruby (and many other languages) have an encoding property. We'll use BINARY
 because we are not planning to store human readable strings here, just some data (which might be malformed or not completely readed from source yet)
 
 So, our byte_buffer is pretty cool, but it's not very usable :(
