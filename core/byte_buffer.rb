@@ -19,7 +19,7 @@ module Foundation
       raise "expected String, got #{str.class}" unless str.respond_to?(:to_str)
       str = str.to_str
 
-      # Available space in is easy to calculate,
+      # Available space is easy to calculate,
       # it is maximal cursor position minus current cursor position
       available_space = @limit - @position
 
