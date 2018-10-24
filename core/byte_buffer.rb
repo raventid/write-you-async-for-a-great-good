@@ -41,4 +41,5 @@ end
 # Let's create our byte buffer
 buffer = Foundation::ByteBuffer.new(100)
 
+# put some data in byte_buffer
 buffer << "Hello"
