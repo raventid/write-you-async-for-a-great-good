@@ -1,9 +1,5 @@
-# Chapter 3
+# Coroutine nature
 
-We hope this manuscript contains all the basic things you need to know to get started writing a book using Leanpub-Flavored Markdown.
+So far we've been talking about this Fiber thing without actually understanding its nature. I think it's time to reveal this fact, that Fiber is an ancient and beautiful concept found
+in many programming languages. The idea of coprogram was born many years ago. (link to origin?)
 
-If you switch to writing in the Markua syntax instead of Leanpub-Flavored Markdown, please be sure to rename the `images` folder in your `manuscript` folder to `resources.`
-
-If there is anything simple that you think we should add, please email us at <hello@leanpub.com>.
-
-We recommend you take a few minutes to explore all the options in the Book Tools menu for your book on Leanpub. We've built a lot of powerful features that can help you write and sell your book!
