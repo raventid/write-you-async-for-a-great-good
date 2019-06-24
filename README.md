@@ -16,5 +16,6 @@ Plot:
 - Chapter 11: Let's implement asynchronous http 1.1.
 - Chapter 12: Let's implement asyncronous web-server and app.
 - Chapter 13: Wrapping up. Async/await, CSP, Actors and other high level models.
+- Chapter 14: Async in Rust, Haskell and Erlang. Further studying.
 
 Plot is in flux, so it might change! :)
