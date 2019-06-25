@@ -29,6 +29,64 @@ To call fibby we use special method `resume`.
 
 --- numbers generator example ---
 
+One of the ways we can exploit Fiber is to build infinite sequences. Let's try to create Fibonnaci
+sequence. To avoid googling let me explain what fibonnaci is, anyway it would be useful for your
+job interview!
+
+Fibonacci was named after... -- fibonnaci brief history --
+
+So Fibonacci row is the next one 1,1,2,3,5,8,13...
+
+
+```ruby
+  fibonaci = Fiber.new do  
+   x, y = 0, 1 
+   loop do  
+    Fiber.yield y 
+    x,y = y,x+y 
+   end 
+  end 
+```
+
+Don't be afraid of this code, we'll go through the first couple of iterations so you will
+be pretty comfortable with it.
+
+Let's run our program. First I'm gonna start new pry session and will load fibonaci into it.
+
+```
+=> #<Fiber:0x007fc0b6a26998>
+[2] pry(main)> 
+```
+
+Our fiber has been created. Let's try to run it.
+
+```
+[2] pry(main)> 7.times { puts fibonaci.resume }
+7.times { puts fibonaci.resume }
+1
+1
+2
+3
+5
+8
+13
+=> 7
+[3] pry(main)> 
+```
+
+It works! Awesome! Without leaving the session let's print first 3 numbers.
+
+```
+[3] pry(main)> 3.times { puts fibonaci.resume }
+3.times { puts fibonaci.resume }
+21
+34
+55
+=> 3
+[4] pry(main)> 
+```
+
+This is weird! Why do we have 21, 34 and 55 instead of 1, 1 and 2? The answer is that this is how Fiber works! We've just created next 3 numbers and changed the state of our Fiber.
 
 --- eventmachine and flat asynchrony example ---
 
