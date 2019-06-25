@@ -34,3 +34,5 @@ To call fibby we use special method `resume`.
 
 
 --- fiber as a state machine --- (tough stuff)
+
+--- fiber state machine nature (why it's so suited to async stuff, algebraic effects)
