@@ -1,0 +1,36 @@
+# Eventmachine redux.
+
+
+A great gift of early 2008 was release of a new Ruby version. In Ruby 1.9 new class Fiber was implemented.
+
+It's interesting to take a look at a brief history of this event.
+
+--- brief history ---
+
+Before reader is falling asleep let's take a Fiber and write some code.
+
+```
+fibby = Fiber.new do |value|
+  puts value
+end
+```
+
+Fibby painfully reminds us a function and as you'll in a moment it acts like one!
+
+```
+pry> fibby.resume(10)
+=> 10
+pry>
+```
+
+To call fibby we use special method `resume`.
+
+
+
+--- numbers generator example ---
+
+
+--- eventmachine and flat asynchrony example ---
+
+
+--- fiber as a state machine --- (tough stuff)
