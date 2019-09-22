@@ -1,7 +1,10 @@
 # write-you-async-for-a-great-good
 Source code for my Ruby based async/await tutorial.
 
-Plot:
+## What happened here?
+I've been thinking about writing a small article about my experience of using EventMachine and building infrastructe around it for a real application in commercial use, but latter I've decided to transform into into something like a real book. So it will take a lot more time to do this, if I will ever complete this endevour :) 
+
+### Plot:
 
 - Chapter 1: Problem we are trying to solve. Introducing client/server, socket concept and plot of our story.
 - Chapter 2: Introduction to select Ruby interface.
