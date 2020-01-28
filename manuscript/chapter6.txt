@@ -9,7 +9,7 @@ It's interesting to take a look at a brief history of this event.
 
 Before reader is falling asleep let's take a Fiber and write some code.
 
-```
+```ruby
 fibby = Fiber.new do |value|
   puts value
 end
@@ -17,7 +17,7 @@ end
 
 Fibby painfully reminds us a function and as you'll in a moment it acts like one!
 
-```
+```ruby
 pry> fibby.resume(10)
 => 10
 pry>
@@ -53,14 +53,14 @@ be pretty comfortable with it.
 
 Let's run our program. First I'm gonna start new pry session and will load fibonaci into it.
 
-```
+```ruby
 => #<Fiber:0x007fc0b6a26998>
 [2] pry(main)> 
 ```
 
 Our fiber has been created. Let's try to run it.
 
-```
+```ruby
 [2] pry(main)> 7.times { puts fibonaci.resume }
 7.times { puts fibonaci.resume }
 1
@@ -76,7 +76,7 @@ Our fiber has been created. Let's try to run it.
 
 It works! Awesome! Without leaving the session let's print first 3 numbers.
 
-```
+```ruby
 [3] pry(main)> 3.times { puts fibonaci.resume }
 3.times { puts fibonaci.resume }
 21
@@ -86,7 +86,75 @@ It works! Awesome! Without leaving the session let's print first 3 numbers.
 [4] pry(main)> 
 ```
 
-This is weird! Why do we have 21, 34 and 55 instead of 1, 1 and 2? The answer is that this is how Fiber works! We've just created next 3 numbers and changed the state of our Fiber.
+This is weird! Why do we have 21, 34 and 55 instead of 1, 1 and 2? The answer is that this is how Fiber works! We've just created next 3 numbers and changed the state of our Fiber, this is possible, because we didn't create new fiber from scratch.
+
+
+Actually, our fibonacci code might be expressed in different way.
+
+```ruby
+class Fibber
+  def initializer
+    @x, @y = 0, 1
+  end
+
+  def fib
+    @x, @y = @y, @x + @y 
+    @x
+  end
+end
+```
+
+```ruby
+fib = Fibber.new
+20.times { puts fib.fib }
+```
+
+So, what we've done is actually implemented the same behaviour with object. So, maybe we don't need a Fiber? Unfortunately, the situation is a bit more complicated. Let's dissect fiber:
+
+Fiber is a coroutine implementation which can suspend it's own stack, which also provides extremely fast context switching. Is it possible to make all of this with object. Well, it's not that straightforward actually.
+
+
+Let's try to rebuild this code with Fiber:
+
+```ruby
+def load_image_urls(uri)
+  current_fiber = Fiber.current
+
+  Net::HTTP.start(uri.host, uri.port) do |http|
+    http.request_get(uri.path) do |response|
+      # returns response and pauses the execution
+      Fiber.yield response 
+    end
+  end
+  
+  Fiber.yield
+end
+
+def show_image
+  image_urls = load_image_urls("https://example.com/image_collection.json")
+  images = parse_image_urls(image_urls)
+  image = load_image(images[:funny_cat])
+end
+```
+
+```
+def show_image 
+  Fiber.new do
+    image_urls = load_image_urls("https://example.com/image_collection.json")
+    images = parse_image_urls(image_urls)
+    image = load_image(images[:funny_cat])
+  end
+end
+```
+
+
+
+
+With enough passion and design you can implement this. It's true. But this is how programming works in general, you can take some tools and use them to implement other code! As Fiber provides us with a nice, lighweigt and comprehencible interface - why not use it?
+
+
+
+
 
 --- eventmachine and flat asynchrony example ---
 
