@@ -14,11 +14,10 @@ class App
   end
 end
 ```
-But they've never could fight the dark side of this code. The `sleep`...
 
-Many years ago this gift application became popular and people of Earth had to pay tremendous amount of money to the creature they asked to host this app - Amazonius.
+There is no logical problem with this code. It works.
 
-The wizard of Earth scratched his had and his face shined, he knew the answer. People already had the answer, the answer to the question how to improve the speed of this application with minimal effort, with ancient magic.
+So why many popular programming languages introduce the fancy `async` keyword? What is behind this concept. Sure, it is asynchrony! But what is it? How does asynchronous code works? Is it possible to implement this not as a core functionality, but as a library? It happens, that the answer is YES to every question here.
 
 ```ruby
 class App
@@ -42,7 +41,7 @@ class GiftApi
 end
 ```
 
-- But is it possible in Ruby? Asked the developer-leader of GiftApplication. She was frustrated as all her team.
+- But is it possible in Ruby? 
 - I don't know. The ancient master of `libev` did leave us a couple of keys to grok this, but you and your team should have patience.
 - We'll do our best, wizard.
 
