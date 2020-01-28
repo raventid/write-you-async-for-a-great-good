@@ -41,6 +41,8 @@ class GiftApi
 end
 ```
 
+The tutorial you are reading has been built to help everyone to understand motivation, logic and code behind asynchrounous code in many languages. We'll use, but what you will is that logic is similat in many languages like Rust, C, C++, Java, Scala, Clojure, Python, Javascript and many more. Despite the fact we are going to finish our path with async/await implementation, behind the scene we will mostly use the same code which powers Go goroutines and Elixir actors.
+
 - But is it possible in Ruby? 
 - I don't know. The ancient master of `libev` did leave us a couple of keys to grok this, but you and your team should have patience.
 - We'll do our best, wizard.
