@@ -13,7 +13,6 @@ class App
   end
 end
 ```
-But they've never could fight the dark side of this code. The `sleep`...
 
 Many years ago this gift application became popular and people of Earth had to pay tremendous amount of money to the creature they asked to host this app - Amazonius.
 
