@@ -8,7 +8,7 @@ I've been thinking about writing a small article about my experience of using Ev
 
 - Chapter 1: Problem we are trying to solve. Introducing client/server, socket concept and plot of our story.
 - Chapter 2: Introduction to select Ruby interface.
-- Chapter 3: Building blocks of async: ByteBuffers, Selectors, EventEmmiters
+- Chapter 3: Building blocks of async: Byte Buffers, Selectors, Event Emmiters
 - Chapter 4: Let's build it. Our first async application!
 - Chapter 5: Prior art. EventMachine.
 - Chapter 6: EventMachine evolution. Fibers.
