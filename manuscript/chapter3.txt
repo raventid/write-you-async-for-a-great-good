@@ -1,5 +1,9 @@
 # Coroutine nature
 
 So far we've been talking about this Fiber thing without actually understanding its nature. I think it's time to reveal this fact, that Fiber is an ancient and beautiful concept found
-in many programming languages. The idea of coprogram was born many years ago. (link to origin?)
+in many programming languages. The idea of coroutine was born many years ago. (link to origin?) We are building a quite low-level library, so I believe we can spend a little time learning about
+inner working of Fiber.
+
+
+picture_with_stack
 
