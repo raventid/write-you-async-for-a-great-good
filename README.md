@@ -19,6 +19,6 @@ I've been thinking about writing a small article about my experience of using Ev
 - Chapter 11: Let's implement asynchronous HTTP 1.1. And why HTTP 2 is beyond our reach.
 - Chapter 12: Let's implement asyncronous web-server and app.
 - Chapter 13: Wrapping up. Async/await, CSP, Actors and other high level models.
-- Chapter 14: Async in C, Java, Rust, Haskell and Erlang. Further studying.
+- Chapter 14: Async in C, Java, Rust, and Javascript. Further studying.
 
 Plot is in flux, so it might change! :)
