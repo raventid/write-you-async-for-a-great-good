@@ -16,7 +16,7 @@ I've been thinking about writing a small article about my experience of using Ev
 - Chapter 8: Modern age Async. Autofiber. Guilds.
 - Chapter 9: Let's build it 2. Using fibers as our core abstraction.
 - Chapter 10: Let's implement asynchronous TCP.
-- Chapter 11: Let's implement asynchronous HTTP 1.1.
+- Chapter 11: Let's implement asynchronous HTTP 1.1. And why HTTP 2 is beyond our reach.
 - Chapter 12: Let's implement asyncronous web-server and app.
 - Chapter 13: Wrapping up. Async/await, CSP, Actors and other high level models.
 - Chapter 14: Async in C, Java, Rust, Haskell and Erlang. Further studying.
