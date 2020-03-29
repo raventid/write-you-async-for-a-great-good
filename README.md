@@ -9,7 +9,7 @@ I've been thinking about writing a small article about my experience of using Ev
 - Chapter 1: Problem we are trying to solve. Introducing client/server, socket concept and plot of our story.
 - Chapter 2: Introduction to select Ruby interface.
 - Chapter 3: Building blocks of async: Byte Buffers, Selectors, Event Emmiters
-- Chapter 4: Let's build it. Our first async application!
+- Chapter 4: Let's build it. Our first async application in plain Ruby.
 - Chapter 5: Prior art. EventMachine.
 - Chapter 6: EventMachine evolution. Fibers.
 - Chapter 7: Alternative approaches. Revactor, Celluloid, nio4r and others.
