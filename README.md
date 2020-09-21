@@ -13,7 +13,7 @@ I've been thinking about writing a small article about my experience of using Ev
 - Chapter 5: Prior art. EventMachine.
 - Chapter 6: EventMachine evolution. Fibers.
 - Chapter 7: Alternative approaches. Revactor, Celluloid, nio4r and others.
-- Chapter 8: Modern age Async. Autofiber. Guilds.
+- Chapter 8: Modern age Async. Ractors and the future of Ruby async.
 - Chapter 9: Let's build it 2. Using fibers as our core abstraction.
 - Chapter 10: Let's implement asynchronous TCP.
 - Chapter 11: Let's implement asynchronous HTTP 1.1. And why HTTP 2 is beyond our reach.
