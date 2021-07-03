@@ -1,3 +1,5 @@
 # EventMachine
 
-
+Why eventmachine has been created?
+Evolution and usage in production.
+Why it stopped to be popular.
