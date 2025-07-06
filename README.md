@@ -1,5 +1,5 @@
 # write-you-async-for-a-great-good
-Source code for my Lox based async/await tutorial. Initially created as a tutorial for Ruby, I decided to move it to a simpler, artificial educational langauge.
+Source code for my Lox based async/await tutorial. Initially created as a tutorial for Ruby, I decided to move it to a simpler, artificial educational language.
 
 ## What happened here?
 I've been thinking about writing a small article about my experience of using Ruby's EventMachine and building infrastructe around it for a real application in commercial use, but latter I've decided to transform into something like a real book. So it will take a lot more time to do this, if I will ever complete this endevour :) 
