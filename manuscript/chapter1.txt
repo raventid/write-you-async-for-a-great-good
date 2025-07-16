@@ -3,7 +3,7 @@
 
 Hi, folks!
 
-Once upon a time people of Earth decided to build asyncronous libraries, so they can write code in nonblocking manner. They came a long road to this decision. They've been always writing straightforward code like this one for web-applications:
+Before starting to explore the code and thinking how to implement async/await or what coroutines are we should motivate ourself to explore those topics. Why is it important? Why is it useful?. Look at the next code sample:
 
 ```ruby
 class App
